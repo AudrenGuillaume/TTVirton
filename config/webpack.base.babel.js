@@ -27,7 +27,7 @@ module.exports = (options) => ({
       {
         // Preprocess our own .scss files
         test: /\.scss$/,
-        exclude: /node_modules/,
+        exclude: /.(node_modules|less)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
@@ -41,6 +41,17 @@ module.exports = (options) => ({
         use: 'file-loader',
       },
       {
+        test: /\.less$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          {
+            loader: "less-loader",
+            options: { javascriptEnabled: true }
+          }
+        ]
+      },
+      {
         test: /\.(jpg|png|gif)$/,
         use: [
           'file-loader',
@@ -48,23 +59,14 @@ module.exports = (options) => ({
             loader: 'image-webpack-loader',
             options: {
               query: {
-                gifsicle: {
-                  interlaced: true
-                },
-                mozjpeg: {
-                  progressive: true
-                },
-                optipng: {
-                  optimizationLevel: 7
-                },
-                pngquant: {
-                  quality: '65-90',
-                  speed: 4
-                }
+                gifsicle: { interlaced: true },
+                mozjpeg: { progressive: true },
+                optipng: { optimizationLevel: 7 },
+                pngquant: { quality: '65-90', speed: 4 }
               }
-            },
-          },
-        ],
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
@@ -80,9 +82,9 @@ module.exports = (options) => ({
           loader: 'url-loader',
           options: {
             limit: 10000
-          },
-        },
-      },
+          }
+        }
+      }
     ],
   },
   plugins: options.plugins.concat([

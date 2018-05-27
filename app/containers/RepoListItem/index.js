@@ -4,7 +4,5 @@ import { makeSelectCurrentUser } from 'containers/App/selectors';
 import RepoListItem from './RepoListItem';
 
 export default connect(
-  createStructuredSelector({
-    currentUser: makeSelectCurrentUser()
-  })
+  createStructuredSelector({ currentUser: makeSelectCurrentUser() })
 )(RepoListItem);

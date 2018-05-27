@@ -17,16 +17,13 @@ export default class RepoListItem extends React.PureComponent { // eslint-disabl
 
     // If the repository is owned by a different person than we got the data for
     // it's a fork and we should show the name of the owner
-    if (item.owner.login !== this.props.currentUser) {
+    if (item.owner.login !== this.props.currentUser)
       nameprefix = `${item.owner.login}/`;
-    }
 
     // Put together the content of the repository
     const content = (
       <div className="repo-list-item">
-        <a className="repo-list-item__repo-link" href={item.html_url} target="_blank">
-          {nameprefix + item.name}
-        </a>
+        <a className="repo-list-item__repo-link" href={item.html_url} target="_blank">{nameprefix + item.name}</a>
         <a className="repo-list-item__issue-link" href={`${item.html_url}/issues`} target="_blank">
           <IssueIcon className="repo-list-item__issue-icon" />
           {item.open_issues_count}
@@ -35,9 +32,7 @@ export default class RepoListItem extends React.PureComponent { // eslint-disabl
     );
 
     // Render the content into a list item
-    return (
-      <ListItem key={`repo-list-item-${item.full_name}`} item={content} />
-    );
+    return (<ListItem key={`repo-list-item-${item.full_name}`} item={content} />);
   }
 }
 
