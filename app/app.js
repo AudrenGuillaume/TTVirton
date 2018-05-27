@@ -35,11 +35,10 @@ import configureStore from './configureStore';
 const openSansObserver = new FontFaceObserver('Open Sans', {});
 
 // When Open Sans is loaded, add a font-family using Open Sans to the body
-openSansObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-}, () => {
-  document.body.classList.remove('fontLoaded');
-});
+openSansObserver.load().then(
+  () => document.body.classList.add('fontLoaded'),
+  () => document.body.classList.remove('fontLoaded')
+);
 
 // Create redux store with history
 const initialState = {};
@@ -48,16 +47,16 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      {/* <LanguageProvider messages={messages}> */}
-      <ConnectedRouter history={history}>
-        <App />
-      </ConnectedRouter>
-      {/* </LanguageProvider> */}
-    </Provider>,
-    MOUNT_NODE
-  );
+    ReactDOM.render(
+      <Provider store={store}>
+        {/* <LanguageProvider messages={messages}> */}
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
+        {/* </LanguageProvider> */}
+      </Provider>,
+      MOUNT_NODE
+    );
 };
 
 if (module.hot) {

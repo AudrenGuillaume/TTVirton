@@ -17,9 +17,7 @@ import globalReducer from 'containers/App/reducer';
  */
 
 // Initial routing state
-const routeInitialState = fromJS({
-  location: null,
-});
+const routeInitialState = fromJS({ location: null });
 
 /**
  * Merge route into the global application state
@@ -28,9 +26,7 @@ function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
     /* istanbul ignore next */
     case LOCATION_CHANGE:
-      return state.merge({
-        location: action.payload,
-      });
+      return state.merge({ location: action.payload });
     default:
       return state;
   }
