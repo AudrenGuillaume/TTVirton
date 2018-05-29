@@ -58,23 +58,6 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
                   value={this.props.username}
                   onChange={this.props.onChangeUsername}
                 />
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
               </label>
             </form>
             <ReposList {...reposListProps} />

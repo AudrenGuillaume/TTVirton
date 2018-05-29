@@ -12,10 +12,13 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
+import ContactPage from 'containers/ContactPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import Navibar from '../../components/Navigation';
 import Footer from 'components/Footer';
+
+import { BackTop } from 'antd';
 
 import './ant.less';
 
@@ -23,28 +26,30 @@ class App extends Component {
   state = { location: '/' }
 
   componentDidMount() {
-    this.setState({...this.state, location: location.pathname });    
+    this.setState({ ...this.state, location: location.pathname });
   }
 
   render() {
     let current_path = window.location.pathname;
     return (
       <div className="app-wrapper">
-      <Helmet titleTemplate="TT Virton - %s" defaultTitle="TT Virton" >
-        <meta name="description" content="Actuality page" />
+        <Helmet titleTemplate="TT Virton - %s" defaultTitle="TT Virton" >
+          <meta name="description" content="Actuality page" />
         </Helmet>
-        {current_path !== '/' ? <Navibar /> : null}  
+        {current_path !== '/' ? <Navibar /> : null}
+        <div style={{ padding: '10px' }}></div>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={FeaturePage} />
-          <Route path="/club" component={FeaturePage} />      
+          <Route path="/club" component={FeaturePage} />
           <Route path="/matchs" component={FeaturePage} />
           <Route path="/files" component={FeaturePage} />
-          <Route path="/contact" component={FeaturePage} />
+          <Route path="/contact" component={ContactPage} />
           <Route path="" component={NotFoundPage} />
-      </Switch>
-      <Footer />
-    </div>
+        </Switch>
+        <BackTop />
+        <Footer />
+      </div>
     );
   }
 }
