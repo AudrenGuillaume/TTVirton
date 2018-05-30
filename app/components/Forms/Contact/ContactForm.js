@@ -5,6 +5,9 @@ const { TextArea } = Input;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
+import '../../../styles/ant.less';
+import './contact.less';
+
 class RegistrationForm extends React.Component {
     state = { confirmDirty: false, autoCompleteResult: [] };
 

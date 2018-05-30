@@ -21,7 +21,9 @@ import Footer from 'components/Footer';
 import { BackTop, Layout } from 'antd';
 const { Header } = Layout;
 
-import './ant.less';
+// Style: global & local
+import '../../styles/ant.less';
+import './app.less';
 
 class App extends Component {
   state = { location: '/' }

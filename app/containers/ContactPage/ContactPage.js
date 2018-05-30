@@ -8,6 +8,9 @@ const { Content, Header } = Layout;
 import ContactForm from '../../components/Forms/Contact'
 // <ContactForm/>
 
+// Style: global & local
+import '../../styles/ant.less';
+import './contact.less';
 
 class ContactPage extends PureComponent {
 
