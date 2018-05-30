@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 
-const {TextArea} = Input;
+const { TextArea } = Input;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -56,23 +56,22 @@ class RegistrationForm extends React.Component {
         };
 
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} layout="vertical">
                 <Form.Item {...formItemLayout} label="Email">
                     {getFieldDecorator('email', {
                         rules: [
                             { type: 'email', message: 'The input is not valid E-mail!' },
-                            { required: true, message: 'Please input your E-mail!' }
+                            { message: 'Please input your E-mail!' }
                         ]
-                    })(<Input />)}
+                    })
+                        (<Input />)}
                 </Form.Item>
                 <Form.Item {...formItemLayout} label="Name">
-                    {getFieldDecorator('name',
-                        { rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }] }
-                    )(<Input />)}
+                    {getFieldDecorator('name', { rules: [{ message: 'Please input your Name!', whitespace: true }] })
+                        (<Input />)}
                 </Form.Item>
                 <Form.Item  {...formItemLayout} label="Message" >
-                    {getFieldDecorator('message',
-                        { rules: [{ required: true, message: 'Please fill this textarea!' }] })
+                    {getFieldDecorator('message', { rules: [{ message: 'Please fill this textarea!' }] })
                         (<TextArea rows={6} />)}
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>

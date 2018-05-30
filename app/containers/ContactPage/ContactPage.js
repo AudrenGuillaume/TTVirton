@@ -23,10 +23,10 @@ class ContactPage extends PureComponent {
                         <Row>
                             Contact  
                             <Row justify="left" type="flex">
-                            <Col span={12} style={{ textAlign:'left', margin:'0 -60px'}} >
+                            <Col span={12} style={{ textAlign:'left', margin:'0'}} >
                             <ContactForm />
                             </Col>
-                            <Col span={10} offset={4}>
+                            <Col span={10} offset={2}>
                             Hello Wolrd
                             </Col>
                             </Row>
