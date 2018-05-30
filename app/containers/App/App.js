@@ -18,7 +18,8 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Navibar from '../../components/Navigation';
 import Footer from 'components/Footer';
 
-import { BackTop } from 'antd';
+import { BackTop, Layout } from 'antd';
+const { Header } = Layout;
 
 import './ant.less';
 
@@ -36,8 +37,7 @@ class App extends Component {
         <Helmet titleTemplate="TT Virton - %s" defaultTitle="TT Virton" >
           <meta name="description" content="Actuality page" />
         </Helmet>
-        {current_path !== '/' ? <Navibar /> : null}
-        <div style={{ padding: '10px' }}></div>
+        {current_path !== '/' ? (<Header id="header"><Navibar /></Header>) : null}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={FeaturePage} />

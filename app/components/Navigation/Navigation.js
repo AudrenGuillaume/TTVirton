@@ -1,5 +1,5 @@
 // React
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 // Ant design
@@ -21,28 +21,47 @@ class Navbar extends Component {
         return (
             <Affix>
                 <Row className="Nav">
-                    <Col span={23} >
-                        <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-                            <Menu.Item key="home"><Link to="/"><Icon type="home"/>Home</Link></Menu.Item>
-                            <Menu.SubMenu title={<span><Icon type="trophy" />Club</span>}>
-                                <Menu.Item key="c1"><Link to="/joueurs">Joueur</Link></Menu.Item>
-                                <Menu.Item key="c2"><Link to="/matchs">Matchs</Link></Menu.Item>    
-                                <Menu.Item key="c3"><Link to="/equipes">Equipes</Link></Menu.Item>    
+                    <Col span={24} >
+                        <Menu className="display" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+                            <Menu.Item key="home"><Link to="/"><Icon type="home"/><span>Home</span></Link></Menu.Item>
+                            <Menu.SubMenu title={<Fragment><Icon type="trophy"/><span>Club</span></Fragment>}>
+                    
+                                <Menu.Item key="c1"><Link to="/joueurs"><span>Joueur</span></Link></Menu.Item>
+                                <Menu.Item key="c2"><Link to="/matchs"><span>Matchs</span></Link></Menu.Item>    
+                                <Menu.Item key="c3"><Link to="/equipes"><span>Equipes</span></Link></Menu.Item>
                             </Menu.SubMenu>
-                            <Menu.Item key="contact"><Link to="/contact"><Icon type="contacts" />Contact</Link></Menu.Item>
+                            <Menu.Item key="contact"><Link to="/contact"><Icon type="contacts" /><span>Contact</span></Link></Menu.Item>
+                            <Menu.Item key="login"><Link to="/login"><Icon type="login"/><span>Login</span></Link></Menu.Item>
                         </Menu>
                     </Col>
-                    <Col span={1} justify="end">
-                        <Row type="flex" justify="end">
-                            <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-                                <Menu.Item key="login"><Link to="/login"><Icon type="login"/>Login</Link></Menu.Item>
-                            </Menu>
-                        </Row>
-                    </Col>
+                  
                 </Row>
             </Affix>
         );
     }
 }
+
+// <Affix>
+//                 <Row className="Nav mobile">
+//                     <Col span={23} >
+//                         <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+//                             <Menu.Item key="home"><Link to="/"><Icon type="home"/>Home</Link></Menu.Item>
+//                             <Menu.SubMenu title={<span><Icon type="trophy" />Club</span>}>
+//                                 <Menu.Item key="c1"><Link to="/joueurs">Joueur</Link></Menu.Item>
+//                                 <Menu.Item key="c2"><Link to="/matchs">Matchs</Link></Menu.Item>    
+//                                 <Menu.Item key="c3"><Link to="/equipes">Equipes</Link></Menu.Item>    
+//                             </Menu.SubMenu>
+//                             <Menu.Item key="contact"><Link to="/contact"><Icon type="contacts" />Contact</Link></Menu.Item>
+//                         </Menu>
+//                     </Col>
+//                     <Col span={1} justify="end">
+//                         <Row type="flex" justify="end">
+//                             <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+//                                 <Menu.Item key="login"><Link to="/login"><Icon type="login"/>Login</Link></Menu.Item>
+//                             </Menu>
+//                         </Row>
+//                     </Col>
+//                 </Row>
+//             </Affix>
 
 export default Navbar;

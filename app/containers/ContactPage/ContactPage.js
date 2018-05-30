@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Layout } from 'antd';
+import { Col, Layout, Row } from 'antd';
 
 const { Content, Header } = Layout;
 
@@ -12,17 +12,26 @@ import ContactForm from '../../components/Forms/Contact'
 class ContactPage extends PureComponent {
 
     render() {
-         return (
+        return (
             <article>
                 <Helmet>
                     <title>Contact</title>
                     <meta name="description" content="" />
                 </Helmet>
-                <Layout>
-                    <Content style={{ padding: '0 50px', background: '#fff' }}>
-                        <div style={{ padding: 24 }}>
-                            FORM
-                    </div>
+                <Layout>   
+                    <Content style={{ padding: '0 16px', background: '#fff' }}>
+                        <Row>
+                            Contact  
+                            <Row justify="left" type="flex">
+                            <Col span={12} style={{ textAlign:'left', margin:'0 -60px'}} >
+                            <ContactForm />
+                            </Col>
+                            <Col span={10} offset={4}>
+                            Hello Wolrd
+                            </Col>
+                            </Row>
+                        </Row>
+
                         <h1>title</h1>
                         <p>Hello World!</p>
                         <p>this page containing my notes on document.head, even though the markup is similar to that of any other article on this site. It seems as if the length of the content is important as well. But how does Safari measure content length? Does the number of children of the wrapper element matter? How about the number of characters inside?

@@ -9,3 +9,36 @@
     background: #fff;
     width: 100%;
 }
+
+.mobile{
+
+        @media screen and (max-width:400px) {
+            display: block !important;
+            text-align: center !important;
+            vertical-align:middle !important;
+        }
+    
+}
+
+.display{
+    .ant-menu-item{
+        text-align: center !important;
+        @media (max-width: 400px){
+            a {
+                padding-bottom: 0px;
+                i{ margin: 0; padding:0; }
+                span{ display: none; }
+            }
+        }
+    }
+    .ant-menu-item:last-child{
+        position: absolute;
+        right: 0;
+    }
+    .ant-menu-submenu .ant-menu-submenu-title{
+        @media (max-width:400px){
+                i{ margin: 0; padding:0; }
+                span{ display: none; }
+        }
+    }
+}
