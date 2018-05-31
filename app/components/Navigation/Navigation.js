@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 // Ant design
 import { Affix, Col, Icon, Menu, Row } from 'antd';
 
-import '../../styles/ant.less';
 import './nav.less';
+
 
 class Navbar extends Component {
     state = { current: 'home' };

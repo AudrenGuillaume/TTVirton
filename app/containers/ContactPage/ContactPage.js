@@ -1,16 +1,34 @@
-import React, { PureComponent } from 'react';
+// React
+import React, { Component, PureComponent } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Col, Layout, Row } from 'antd';
-
+// Ant design
+import { Card, Col, Icon, Layout, Row, Table } from 'antd';
 const { Content, Header } = Layout;
 
+// Google Maps
+import GoogleMap from '../Google';
+// Forms
 import ContactForm from '../../components/Forms/Contact'
-// <ContactForm/>
 
-// Style: global & local
-import '../../styles/ant.less';
+// Style: global + local
 import './contact.less';
+
+const grid_form = { xs: { span: 24, order: 2 }, lg: { span: 11, order: 1 } };
+const grid_info = { xs: { span: 24, order: 1 }, lg: { span: 10, offset:1 } };
+const grid_map = { xs: { span: 24, order: 3 }, lg: { span: 22} };
+
+const columns = [
+    { title: '', dataIndex: 'icon', key: 'icon' },
+    { title: '', dataIndex: 'text', className: 'column-info', key: 'text' }
+];
+const data = [
+    { key: 1, icon: <Icon type="environment" />, text: <div><p>Cour Marchal 6/Z,</p><p>6760 Virton,</p><p>Belgique</p></div> },
+    { key: 2, icon: <Icon type="phone" />, text: '063/00.00.00' },
+    { key: 3, icon: <Icon type="mail" />, text: 'ttvirton@email.com' }
+];
+
+const [icon, text] = [{ width: '30%', textAlign: 'center' }, { width: '70%' }]
 
 class ContactPage extends PureComponent {
 
@@ -21,44 +39,57 @@ class ContactPage extends PureComponent {
                     <title>Contact</title>
                     <meta name="description" content="" />
                 </Helmet>
-                <Layout>   
-                    <Content style={{ padding: '0 16px', background: '#fff' }}>
-                        <Row>
-                            Contact  
-                            <Row justify="left" type="flex">
-                            <Col span={12} style={{ textAlign:'left', margin:'0'}} >
-                            <ContactForm />
+                <Layout>
+                    <Content style={{ padding: '30px 16px', background: '#fff'}}>
+                        <Row type="flex" justify="center">
+                            <Col {...grid_form} >
+                                <Card title="Contact">
+                                    <ContactForm />
+                                </Card>    
                             </Col>
-                            <Col span={10} offset={2}>
-                            Hello Wolrd
+                            <Col {...grid_info} >
+                                <Card title="Informations" className="card">
+                                    <Row type="flex" textAlign="center" align="middle">
+                                        <Col span={4} ><Icon type="environment" /></Col>
+                                        <Col span={20}><span>Cour Marchal 6/Z,<br />6760 Virton, <br />Belgique</span></Col>
+                                    </Row>
+                                    <Row type="flex" textAlign="center" align="middle">
+                                        <Col span={4}><Icon type="phone" /></Col>
+                                        <Col span={20}>063/00.00.00</Col>
+                                    </Row>
+                                    <Row type="flex" textAlign="center" align="middle">
+                                        <Col span={4}><Icon type="mail" /></Col>
+                                        <Col span={20}>ttvirton@mail.com</Col>
+                                    </Row>
+                                    <Row type="flex" textAlign="center" align="middle">
+                                        <Col span={4}><Icon type="tool" /></Col>
+                                        <Col span={20}>audren.guilllaume@gmail.com</Col>
+                                    </Row>
+                                </Card>
                             </Col>
-                            </Row>
                         </Row>
-
-                        <h1>title</h1>
-                        <p>Hello World!</p>
-                        <p>this page containing my notes on document.head, even though the markup is similar to that of any other article on this site. It seems as if the length of the content is important as well. But how does Safari measure content length? Does the number of children of the wrapper element matter? How about the number of characters inside?
-
-                        Rob Flaherty decided to investigate this further and created some test documents. He made some interesting observations:
-
-                            You need a wrapper element around the actual content, other than  It doesn’t really matter which element you choose, as long as it’s not.
-                            Reader requires at least five child elements inside the wrapper. Using double line breaks () inside an element makes it count as two elements.
-                            Reader doesn’t seem to work for local files.
-
-                        All valid points, except “Reader requires at least five child elements inside the wrapper”, which doesn’t seem to be true. The number of child elements doesn’t matter, the content length seems to be measured another way. I’ll get to that later.
-                        Clayton Ferris did some additional testing, and concluded the following:
-                            It looks like that Safari Reader will detect a  or block level element that contains a header element (), followed by a certain amount of text. The reader badge will appear when the content text (not including the header) is more than 2,000 characters.
-                        Sadly, none of Clayton’s statements seem to be true. I created some quick test cases to demonstrate it’s just not that simple:
-                            Test 1: 3 paragraphs, 1,863 characters (including heading and line breaks); Reader fails.
-                            Test 2: same as test 1, but with added — 4 paragraphs, 1,866 characters; Reader works.
-                            Test 3: test without any heading elements — 6 paragraphs, 3,718 characters; Reader works.
-
-                This also proves that there is no fixed amount of paragraphs (or other elements) needed to enable Reader; it all depends on the contents.</p>
+                        <Row type="flex" justify="center">
+                            <Col {...grid_map}>
+                                <Card title={"Google Maps"} className="map">
+                                    <div style={{padding: 0,margin:0, height: '400px', width:'90%' }}>
+                                    <GoogleMap />
+                                    </div>    
+                                </Card>
+                            </Col>
+                        </Row>
                     </Content>
                 </Layout>
-            </article>
+            </article >
         );
     }
 }
 
 export default ContactPage;
+
+// <Card.Grid style={text}><p>Cour Marchal 6/Z,</p><p>6760 Virton,</p><p>Belgique</p></Card.Grid>  
+// <Card.Grid style={icon}><Icon type="phone" /></Card.Grid>
+// <Card.Grid style={text}>063/00.00.00</Card.Grid>
+// <Card.Grid style={icon}><Icon type="mail" /></Card.Grid>
+// <Card.Grid style={text}>ttvirton@email.com</Card.Grid>
+// <Card.Grid style={icon}><Icon type="tool" /></Card.Grid>
+// <Card.Grid style={text}>Technical support: audren.guilllaume@gmail.be</Card.Grid>

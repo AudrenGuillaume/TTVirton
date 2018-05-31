@@ -60,7 +60,7 @@ class RegistrationForm extends React.Component {
 
         return (
             <Form onSubmit={this.handleSubmit} layout="vertical">
-                <Form.Item {...formItemLayout} label="Email">
+                <Form.Item label="Email">
                     {getFieldDecorator('email', {
                         rules: [
                             { type: 'email', message: 'The input is not valid E-mail!' },
@@ -69,15 +69,15 @@ class RegistrationForm extends React.Component {
                     })
                         (<Input />)}
                 </Form.Item>
-                <Form.Item {...formItemLayout} label="Name">
+                <Form.Item label="Name">
                     {getFieldDecorator('name', { rules: [{ message: 'Please input your Name!', whitespace: true }] })
                         (<Input />)}
                 </Form.Item>
-                <Form.Item  {...formItemLayout} label="Message" >
+                <Form.Item label="Message" >
                     {getFieldDecorator('message', { rules: [{ message: 'Please fill this textarea!' }] })
-                        (<TextArea rows={6} />)}
+                        (<TextArea rows={2} placeholder="2000 caractères max." />)}
                 </Form.Item>
-                <Form.Item {...tailFormItemLayout}>
+                <Form.Item>
                     <Button type="primary" htmlType="submit">Submit</Button>
                 </Form.Item>
             </Form>
