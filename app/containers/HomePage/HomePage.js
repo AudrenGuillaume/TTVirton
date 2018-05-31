@@ -12,6 +12,7 @@ import ReposList from 'components/ReposList';
 import Banner from '../../components/Banner';
 import Navbar from '../../components/Navigation';
 
+
 import './style.scss';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

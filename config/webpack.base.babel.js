@@ -72,10 +72,10 @@ module.exports = (options) => ({
         test: /\.html$/,
         use: 'html-loader'
       },
-      {
-        test: /\.json$/,
-        use: 'json-loader'
-      },
+      // {
+      //   test: /\.json$/,
+      //   use: 'json-loader'
+      // },
       {
         test: /\.(mp4|webm)$/,
         use: {
