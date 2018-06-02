@@ -10,12 +10,12 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
-import MainPage from 'containers/MainPage/Loadable';
-import HomePage from 'containers/HomePage/Loadable';
-import LoginPage from 'containers/LoginPage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import ContactPage from 'containers/ContactPage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import MainPage from '../Pages/MainPage/Loadable';
+import HomePage from '../Pages/HomePage/Loadable';
+import LoginPage from '../Pages/LoginPage/Loadable';
+import FeaturePage from '../Pages/FeaturePage/Loadable';
+import ContactPage from '../Pages/ContactPage/Loadable';
+import NotFoundPage from '../Pages/NotFoundPage/Loadable';
 
 import Navibar from '../../components/Navigation';
 import Footer from 'components/Footer';
@@ -42,7 +42,7 @@ class App extends Component {
           <meta name="description" content="Actuality page" />
         </Helmet>
         <Layout>
-        {current_path !== '/' ? (<Header id="header"><Navibar /></Header>) : null}
+        <Header id="header"> <Navibar /></Header>  
         <Switch>
           <Route exact path="/" component={HomePage} />  
           <Route path="/login" component={LoginPage} />
@@ -64,3 +64,5 @@ export default App;
 
 
 // <Route exact path="/home" component={HomePage} />
+
+// {current_path !== '/' ? (<Header id="header"><Navibar /></Header>) : null}

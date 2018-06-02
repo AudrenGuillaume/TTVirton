@@ -7,7 +7,7 @@ import { Col, Layout, Row } from 'antd';
 const { Content } = Layout;
 
 // Components
-import Login from '../../components/Forms/Login';
+import Login from 'components/Forms/Login';
 
 // Class
 class LoginPage extends Component {

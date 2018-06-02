@@ -7,9 +7,9 @@ import { Card, Col, Icon, Layout, Row, Table } from 'antd';
 const { Content, Header } = Layout;
 
 // Google Maps
-import GoogleMap from '../Google';
+import GoogleMap from 'containers/Google';
 // Forms
-import ContactForm from '../../components/Forms/Contact'
+import ContactForm from 'components/Forms/Contact'
 
 // Style: global + local
 import './contact.less';
@@ -31,7 +31,7 @@ const data = [
 const [icon, text] = [{ width: '30%', textAlign: 'center' }, { width: '70%' }]
 
 class ContactPage extends PureComponent {
-
+    // TODO mail / github for support
     render() {
         return (
             <article>
@@ -71,11 +71,9 @@ class ContactPage extends PureComponent {
                         <Row type="flex" justify="center">
                             <Col {...grid_map}>
                                 <Card title={"Google Maps"} className="map">
-                                    <div className="google">
-                                        <div style={{ margin: 0, height: '400px', width: '100%' }}>
+                                        <div style={{ margin: 0, width: '100%' }}>
                                             <GoogleMap />
                                         </div>
-                                    </div>
                                 </Card>
                             </Col>
                         </Row>

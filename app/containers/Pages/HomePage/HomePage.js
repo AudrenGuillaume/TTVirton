@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import ReposList from 'components/ReposList';
 
-import Banner from '../../components/Banner';
-import Navbar from '../../components/Navigation';
+import Banner from 'components/Banner';
+import Navbar from 'components/Navigation';
 
 
 import './style.scss';
