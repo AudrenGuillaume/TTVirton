@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Layout } from 'antd';
 
 const Fo = Layout.Footer;
 import './ant.less';
 
 const Footer = () => (
-  <Layout style={{textAlign: 'center'}}>
+  <Fragment style={{textAlign: 'center'}}>
     <Fo>HERS - Copyright © 2018 Created by AudrenGuillaume</Fo>
-  </Layout>
+  </Fragment>
 );
 
 export default Footer;

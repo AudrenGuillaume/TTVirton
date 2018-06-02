@@ -3,12 +3,6 @@ import React, { Component } from 'react';
 import { InfoWindow, Marker, Map, GoogleApiWrapper } from 'google-maps-react';
 
 import { center, apiKey, marker, zoom} from './google.json';
-const google = {
-    center: { lat: 59.95, lng: 30.33 },
-    zoom: 11
-}
-// import { key } from './config/google';
-// AIzaSyBdQEDK2GcF-wSVLy2O_Q3IPo4ePhj6WSI 
 
 class MapContainer extends Component {
     state = {

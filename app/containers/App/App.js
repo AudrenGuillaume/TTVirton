@@ -6,11 +6,13 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
+import MainPage from 'containers/MainPage/Loadable';
 import HomePage from 'containers/HomePage/Loadable';
+import LoginPage from 'containers/LoginPage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import ContactPage from 'containers/ContactPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -18,7 +20,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Navibar from '../../components/Navigation';
 import Footer from 'components/Footer';
 
-import { BackTop, Layout } from 'antd';
+import { BackTop, Modal, Layout } from 'antd';
 const { Header } = Layout;
 
 // Style: global & local
@@ -26,23 +28,24 @@ const { Header } = Layout;
 import '../../styles/ant.less';
 
 class App extends Component {
-  state = { location: '/' }
+  state = { location: '/'}
 
   componentDidMount() {
     this.setState({ ...this.state, location: location.pathname });
   }
 
-  render() {
+  render() { 
     let current_path = window.location.pathname;
     return (
-      <div className="app-wrapper">
+      <Fragment>
         <Helmet titleTemplate="TT Virton - %s" defaultTitle="TT Virton" >
           <meta name="description" content="Actuality page" />
         </Helmet>
+        <Layout>
         {current_path !== '/' ? (<Header id="header"><Navibar /></Header>) : null}
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={FeaturePage} />
+          <Route exact path="/" component={HomePage} />  
+          <Route path="/login" component={LoginPage} />
           <Route path="/club" component={FeaturePage} />
           <Route path="/matchs" component={FeaturePage} />
           <Route path="/files" component={FeaturePage} />
@@ -51,9 +54,13 @@ class App extends Component {
         </Switch>
         <BackTop />
         <Footer />
-      </div>
+        </Layout>
+      </Fragment>
     );
   }
 }
 
 export default App;
+
+
+// <Route exact path="/home" component={HomePage} />

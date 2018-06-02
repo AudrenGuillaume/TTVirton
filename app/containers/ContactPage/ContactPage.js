@@ -15,8 +15,8 @@ import ContactForm from '../../components/Forms/Contact'
 import './contact.less';
 
 const grid_form = { xs: { span: 24, order: 2 }, lg: { span: 11, order: 1 } };
-const grid_info = { xs: { span: 24, order: 1 }, lg: { span: 10, offset:1 } };
-const grid_map = { xs: { span: 24, order: 3 }, lg: { span: 22} };
+const grid_info = { xs: { span: 24, order: 1 }, lg: { span: 10, offset: 1 } };
+const grid_map = { xs: { span: 24, order: 3 }, lg: { span: 22 } };
 
 const columns = [
     { title: '', dataIndex: 'icon', key: 'icon' },
@@ -40,12 +40,12 @@ class ContactPage extends PureComponent {
                     <meta name="description" content="" />
                 </Helmet>
                 <Layout>
-                    <Content style={{ padding: '30px 16px', background: '#fff'}}>
+                    <Content style={{ padding: '30px 16px', background: '#fff' }}>
                         <Row type="flex" justify="center">
                             <Col {...grid_form} >
                                 <Card title="Contact">
                                     <ContactForm />
-                                </Card>    
+                                </Card>
                             </Col>
                             <Col {...grid_info} >
                                 <Card title="Informations" className="card">
@@ -71,9 +71,11 @@ class ContactPage extends PureComponent {
                         <Row type="flex" justify="center">
                             <Col {...grid_map}>
                                 <Card title={"Google Maps"} className="map">
-                                    <div style={{padding: 0,margin:0, height: '400px', width:'90%' }}>
-                                    <GoogleMap />
-                                    </div>    
+                                    <div className="google">
+                                        <div style={{ margin: 0, height: '400px', width: '100%' }}>
+                                            <GoogleMap />
+                                        </div>
+                                    </div>
                                 </Card>
                             </Col>
                         </Row>
