@@ -10,8 +10,6 @@ import { Helmet } from 'react-helmet';
 import ReposList from 'components/ReposList';
 
 import Banner from 'components/Banner';
-import Navbar from 'components/Navigation';
-
 
 import './style.scss';
 
@@ -40,7 +38,6 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
           <meta name="description" content="A React.js Boilerplate application homepage" />
         </Helmet>
         <Banner />
-        <Navbar />
         <div className="home-page">
           <section className="centered">
             <h2>Start your next react project in seconds</h2>
