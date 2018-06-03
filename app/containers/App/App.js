@@ -10,12 +10,12 @@ import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
-import MainPage from 'containers/MainPage/Loadable';
-import HomePage from 'containers/HomePage/Loadable';
-import LoginPage from 'containers/LoginPage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import ContactPage from 'containers/ContactPage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import MainPage from 'containers/Pages/MainPage/Loadable';
+import HomePage from 'containers/Pages/HomePage/Loadable';
+import LoginPage from 'containers/Pages/LoginPage/Loadable';
+import FeaturePage from 'containers/Pages/FeaturePage/Loadable';
+import ContactPage from 'containers/Pages/ContactPage/Loadable';
+import NotFoundPage from 'containers/Pages/NotFoundPage/Loadable';
 
 import Navibar from '../../components/Navigation';
 import Footer from 'components/Footer';
@@ -53,7 +53,7 @@ class App extends Component {
           <Route path="" component={NotFoundPage} />
         </Switch>
         <BackTop />
-        <Footer />
+          <Footer style={{textAlign: 'center'}}/>
         </Layout>
       </Fragment>
     );
