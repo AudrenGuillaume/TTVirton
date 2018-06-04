@@ -48,7 +48,7 @@ class ContactPage extends PureComponent {
                                 </Card>
                             </Col>
                             <Col {...grid_info} >
-                                <Card title="Informations" className="card">
+                                <Card title="Coordonées" className="card">
                                     <Row type="flex" textAlign="center" align="middle">
                                         <Col span={4} ><Icon type="environment" /></Col>
                                         <Col span={20}><span>Cour Marchal 6/Z,<br />6760 Virton, <br />Belgique</span></Col>

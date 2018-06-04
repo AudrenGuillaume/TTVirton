@@ -16,6 +16,9 @@ import Banner from 'components/Banner';
 
 import './home.less';
 
+const grid_text = { xs: { span: 24 }, lg: { span: 20, offset:1} };
+const grid_anchor = { xs: { span: 0 }, lg: { span: 3} };
+
 export default class HomePage extends PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   onLoad() {
@@ -29,7 +32,7 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
         <Banner />
         <Content onLoad={ this.onLoad()}>
           <Row type="flex" justify="space-around">
-            <Col span={20} offset={1}>
+            <Col {...grid_text}>
               <article>
                 <h2 id="header-1">Header 1</h2>
                 <p>latinlorumokdokowkdpwkookef</p>
@@ -37,7 +40,7 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
                 <p>latinlorumokdokowkdpwkookef</p>  
             </article>  
             </Col>
-            <Col span={3}>
+            <Col {...grid_anchor}>
               <Anchor className="onAnchorFixed">
               <Link href="" title="" />
               <Link href="#header-1" title="Header 1" />

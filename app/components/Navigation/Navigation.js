@@ -27,7 +27,6 @@ class Navbar extends Component {
                         <Menu className="display" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
                             <Menu.Item key="home"><Link to="/"><Icon type="home"/><span>Home</span></Link></Menu.Item>
                             <Menu.SubMenu title={<Fragment><Icon type="trophy"/><span>Club</span></Fragment>}>
-                    
                                 <Menu.Item key="c1"><Link to="/joueurs"><span>Joueur</span></Link></Menu.Item>
                                 <Menu.Item key="c2"><Link to="/matchs"><span>Matchs</span></Link></Menu.Item>    
                                 <Menu.Item key="c3"><Link to="/equipes"><span>Equipes</span></Link></Menu.Item>
