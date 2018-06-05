@@ -27,6 +27,7 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 
 // Import CSS reset and Global Styles
 import 'styles/theme.scss';
+import 'styles/ant.less';
 
 import configureStore from './configureStore';
 
