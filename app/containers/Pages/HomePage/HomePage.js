@@ -57,3 +57,5 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
     )
   }
 }
+
+// 10 12 mots par lignes
