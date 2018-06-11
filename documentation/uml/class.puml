@@ -1,0 +1,96 @@
+@startuml TTC Virton - class diagram
+
+skinparam monochrome true
+
+class Club {
+    - uniqueIndex: String 
+    - name: String
+    - longName: String
+    - category: integer
+    - categoryName: String
+    - venue : integer //
+}
+
+class Venue {
+    - id: integer
+    - clubVenue: integer
+    - comment: string
+    - name: string
+    - phone: string
+    - street: string
+    - town: string
+}
+
+class Division {
+    - DivisionId: integer
+	- DivisionName: String
+	- DivisionCategory: integer
+	- Level: integer
+	- MatchType: integer
+}
+
+class Member { 
+    - uniqueIndex: integer
+    - position: integer
+    - firstName: string
+    - lastName: string
+    - gender: string
+    - category: string
+    - rankingIndex: integer
+    - ranking: string
+    - status: string /' duno '/
+    - club: string
+    - birthDate: string
+    - email: string
+    - phone: string
+    - address: string
+}
+
+class Ranking {
+    - position: integer
+	- team: string
+	- gamesPlayed: integer
+	- gamesWon: integer
+	- gamesLost: integer
+	- gamesDraw: integer
+	- individualMatchesWon: integer
+	- individualMatchesLost: integer
+	- individualSetsWon: integer
+	- individualSetsLost: integer
+	- points: integer
+	- teamClub: string
+}
+
+class Team { 
+    - teamId: string
+	- team: string
+	- divisionId: integer
+	- divisionName: string
+	- divisionCategory: integer
+	- matchType: integer
+}
+
+class Match{
+	- divisionName: string
+	- matchId: string
+	- weekName: integer
+	- date: string
+	- time: string
+	- venue: integer
+	- homeClub: string
+	- homeTeam: string
+	- awayClub: string
+	- awayTeam: string
+	- score: string
+	- matchUniqueId: string
+	- nextWeekName: integer
+	- previousWeekName: integer
+	- isHomeForfeited: boolean
+	- isAwayForfeited: boolean
+	- matchDetails: TeamMatchDetailsEntry
+}
+
+Club "1" *-- "1" Venue : is localize 
+Club "1" - "1..*" Member : own
+@enduml
+

@@ -1,0 +1,24 @@
+@startuml Utilisateur connecté - use cases
+
+' skinparam monochrome true
+left to right direction
+
+
+actor "utilisateur connecté" as user
+
+(consulter les résultats) as consult_results
+(mettre à jour ses informations) as maj
+(consulter les membres) as consult_members
+(contacter un membre) as contact
+(encoder résultats de match) as encode
+(consulter la composition d'équipe) as consult_lineup
+
+user -- consult_members
+user -- consult_lineup
+user -- consult_results
+user -- maj
+user - encode
+
+consult_members <.. contact : << extends >>
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml Utilisateurs - use cases
+
+' skinparam monochrome true
+left to right direction
+
+actor "comité" as admin
+actor "utilisateur non connecté" as no_register
+actor "utilisateur connecté" as register
+actor "joueur" as player
+
+no_register <- register
+register <-- player
+register <-- admin
+
+@enduml

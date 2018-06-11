@@ -1,0 +1,16 @@
+@startuml Utilisateur non connecté - use cases
+
+' skinparam monochrome true
+left to right direction
+
+actor "utilisateur non-connecté" as user
+
+(se connecter) as connect
+(consulter l'actualité) as actu
+(contacter l'administrateur) as contact
+
+user -- connect
+user -- actu
+user -- contact
+
+@enduml

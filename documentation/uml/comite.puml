@@ -1,0 +1,25 @@
+@startuml Comité - use cases
+
+' skinparam monochrome true
+left to right direction
+
+actor "comité" as user
+
+(gérer membres) as gerer
+(écrire articles) as write
+(imprimer feuille \nde match) as print
+(établir composition \ndes équipes) as compose
+(modifier composition \nd'équipes) as update
+(générer feuille \nde match pré-rempli) as auto_fill
+
+user --- gerer
+user --- write
+user --- print
+user --- compose
+
+compose <.. update : << extends >> 
+compose ..> auto_fill : << include >>
+
+auto_fill -- system
+
+@enduml

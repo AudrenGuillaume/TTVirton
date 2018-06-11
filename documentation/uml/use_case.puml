@@ -1,0 +1,60 @@
+@startuml TTC Virton - use case
+
+actor "utilisateur non connecté" as no_member
+actor "membre" as m
+actor "comité" as c
+actor "serveur" as s
+
+/' non membre '/
+(se connecter) as connect
+(consulter actualité) as actuality
+(contacter un administrateur) as contact_admin
+
+/' membre '/
+(consulter résultats) as results
+(MAJ informations personnels) as update_profil
+(consulter liste membres) as members
+    (contacter un membre) as contact_member
+(encoder résultats) as encode
+
+/' comité '/
+(gérer membres) as gerer
+(publier l'actualité du club) as publish
+(valider une feuille de match) as check
+(établir la composition des équipes) as team_lineup
+    (modifier composition d'équipes) as update_lineup
+    (publier composition d'équipes) as publish_team
+
+/' system '/
+(vérifier feuilles de matchs) as check_match
+(imprimer feuille de match completé) as print
+(communique composition d'équipes) as com
+
+
+/' links '/
+no_member -up- connect
+no_member -up- actuality
+no_member - contact_admin
+no_member <-- m
+
+m - members
+    members <.down. contact_member : << extends >>
+m -- results
+m -right- update_profil 
+m -- encode
+m <-right- c
+
+c -up- gerer
+c -up- publish
+c -left- check
+c -down- team_lineup
+team_lineup <.up. update_lineup : << extends >>
+c -- publish_team
+
+s -up- check_match
+s -up- print
+s -up- com
+
+encode ..> print
+
+@enduml
