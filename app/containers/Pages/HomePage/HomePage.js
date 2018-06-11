@@ -13,7 +13,7 @@ const { Content } = Layout;
 const { Link } = Anchor;
 
 import Banner from 'components/Banner';
-
+import {PostList} from 'containers/PostListItem';
 import './home.less';
 
 const grid_text = { xs: { span: 24 }, lg: { span: 20, offset:1} };
@@ -33,6 +33,7 @@ export default class HomePage extends PureComponent { // eslint-disable-line rea
         <Content onLoad={ this.onLoad()}>
           <Row type="flex" justify="space-around">
             <Col {...grid_text}>
+              <PostList />
               <article>
                 <h2 id="header-1">Header 1</h2>
                 <p>latinlorumokdokowkdpwkookef</p>

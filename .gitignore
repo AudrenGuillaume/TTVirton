@@ -17,3 +17,6 @@ yarn-error.log
 
 
 google.json
+
+# plantUML
+out/
